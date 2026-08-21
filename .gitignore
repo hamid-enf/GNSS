@@ -1,0 +1,21 @@
+# Binaries
+gnss/test_*
+gnss/simple_*
+gnss/callback_example
+gnss/vendor_example
+gnss/ubx_example
+gnss/baremetal_example
+gnss/build/
+*.o
+*.a
+*.so
+*.elf
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
