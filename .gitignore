@@ -5,6 +5,7 @@ gnss/callback_example
 gnss/vendor_example
 gnss/ubx_example
 gnss/baremetal_example
+gnss/live_demo
 gnss/build/
 *.o
 *.a

@@ -8,7 +8,7 @@ SRC = src/core/gnss.c src/core/gnss_callbacks.c src/parser/frame.c src/parser/nm
 CFLAGS += -DGNSS_ENABLE_NMEA=1 -DGNSS_ENABLE_UBX=1 -DGNSS_ENABLE_GSV=1 -DGNSS_ENABLE_GSA=1 -DGNSS_ENABLE_VTG=1 -DGNSS_ENABLE_GGA=1 -DGNSS_ENABLE_RMC=1 -DGNSS_ENABLE_GLL=1 -DGNSS_ENABLE_ZDA=1 -DGNSS_ENABLE_UBX_NAV_PVT=1 -DGNSS_ENABLE_UBX_NAV_SAT=1 -DGNSS_ENABLE_UBX_NAV_DOP=1 -DGNSS_ENABLE_VENDOR_EXT=1 -DGNSS_ENABLE_VENDOR_QUECTEL=1 -DGNSS_ENABLE_VENDOR_TRIMBLE=1 -DGNSS_ENABLE_VENDOR_MTK=1
 
 TESTS = test_nmea test_ubx test_frame test_all test_gsa_used test_vendor
-EXAMPLES = simple_buffer simple_stream callback_example vendor_example ubx_example baremetal_example
+EXAMPLES = simple_buffer simple_stream callback_example vendor_example ubx_example baremetal_example live_demo
 
 all: $(TESTS) $(EXAMPLES)
 
@@ -47,6 +47,9 @@ ubx_example: examples/ubx/ubx_example.c $(SRC)
 
 baremetal_example: examples/baremetal/main.c $(SRC)
 	$(CC) $(CFLAGS) -o $@ examples/baremetal/main.c $(SRC) $(LDFLAGS)
+
+live_demo: examples/live_demo.c $(SRC)
+	$(CC) $(CFLAGS) -o $@ examples/live_demo.c $(SRC) $(LDFLAGS)
 
 clean:
 	rm -f $(TESTS) $(EXAMPLES) *.o
